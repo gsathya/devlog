@@ -1,0 +1,50 @@
+<!doctype html>
+  
+<title>${post.title}</title>
+<meta charset=utf-8>
+<link rel=stylesheet type=text/css href="../assets/css/style.css">
+<script type=text/javascript
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+
+  <script type="text/javascript" src="/browser/mailinglist.js"></script>
+
+<div class=box>
+  
+  <h1>librelist archives</h1>
+
+  <p class=nav>
+    <a href=/>home</a> //
+    <a href=/browser/index.html>archives</a> //
+  
+  <p class="backnav">
+  <a href="/browser/devlog">&laquo; back to archive</a>
+  <h2>${post.title}</h2>
+
+  <ul class=mailtree>
+  
+    <li><div class=link><a href=${post.link}>${post.title}</a>${post.author}</div>
+    
+  
+  </ul>
+
+  
+    <div class=mail>
+      <h3>${post.title}</h3>
+      <dl>
+        <dt>From:
+        <dd class=from>${post.author}
+        <dt>Date:
+        
+        <dd>${post.timestamp}
+        
+      </dl>
+      <div class="msg">${post.msg}</div>
+    </div>
+  
+
+  <p class=footer>
+   Devlog based on code by <a href=http://www.gsathya.in/>Sathyanarayanan Gunasekaran</a> //
+   Design inspired by <a href=http://lucumr.pocoo.org/>Armin Ronacher</a> //
+</p>
+</div>
