@@ -13,9 +13,9 @@ class Post():
         self.author = config['name']
         self.timestamp = timestamp
         self.msg = msg
-        self.link = link
         self.filename = self.create_filename(self.title)
-    
+        self.link = config['base url']+self.filename
+
     def create_filename(self, title):
         # replace all non-word chars with '-'
         link = re.sub(r'\W+', '-', title.lower())
@@ -49,7 +49,6 @@ def parse_mail(mail):
     if config['name'] != sender:
         return
 
-    print mail.items()
     post = Post(mail['subject'], mail['date'])
 
     for part in mail.walk():
@@ -77,7 +76,16 @@ def make_post(post):
         outfh.write(mytemplate.render(post=post))
 
 def make_index(posts):
-    pass
+    # path to templates
+    template_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
+    template_path = os.path.join(template_path, 'index.html')
+    mytemplate = Template(filename=template_path, module_directory='/tmp/mako_modules')
+    
+    #path to output file
+    outfh_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'index.html')
+    
+    with open(outfh_path, 'w') as outfh:
+        outfh.write(mytemplate.render(posts=posts))
 
 if __name__ == '__main__':
     # parse the config file
