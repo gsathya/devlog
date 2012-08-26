@@ -11,7 +11,3 @@ def parse_config(config_filename):
         for (key, value) in entries:
             config[key] = value            
     return config
-
-if __name__ == '__main__':
-    print parse_config("config.ini")
-    print os.path.dirname(os.path.abspath(__file__))
