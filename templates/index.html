@@ -1,7 +1,7 @@
 <!doctype html>
 
   
-<title>[devlog] archives</title>
+<title>[devlog]</title>
 <meta charset=utf-8>
 <link rel=stylesheet type=text/css href="./assets/css/style.css">
 <script type=text/javascript
@@ -10,14 +10,13 @@
 
 <div class=box>
   
-  <h1>devlog</h1>
+  <h1>[devlog]</h1>
 
   <p class=nav>
-    <a href=/>home</a> //
-    <a href=/browser/index.html>archives</a> //
-  
-
-<h2>[devlog] archives</h2>
+    <a href=${config['home']}>home</a> //
+    <a href=${config['github']}>github</a> //
+    <a href=${config['base url']}>devlog</a> //
+<h2>[devlog] index</h2>
   <ul class=archive>
   
 % for post in posts:

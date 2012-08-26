@@ -6,24 +6,22 @@
 <script type=text/javascript
   src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
-
-  <script type="text/javascript" src="/browser/mailinglist.js"></script>
-
 <div class=box>
   
-  <h1>librelist archives</h1>
+  <h1>[devlog]</h1>
 
   <p class=nav>
-    <a href=/>home</a> //
-    <a href=/browser/index.html>archives</a> //
+    <a href=${config['home']}>home</a> //
+    <a href=${config['github']}>github</a> //
+    <a href=${config['base url']}>devlog</a> //
   
   <p class="backnav">
-  <a href="/browser/devlog">&laquo; back to archive</a>
+  <a href=${config['base url']}>&laquo; back to index</a>
   <h2>${post.title}</h2>
 
   <ul class=mailtree>
   
-    <li><div class=link><a href=${post.link}>${post.title}</a>${post.author}</div>
+    <li><div class=link>&raquo; <a href=${post.link}>${post.title}</a> by ${post.author}</div>
     
   
   </ul>
