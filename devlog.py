@@ -1,6 +1,7 @@
 import sys
 import utils
 import optparse 
+import shutil
 from publish import *
 
 def parse_args(options):
@@ -14,7 +15,8 @@ def parse_args(options):
 def create_skeleton():
     newpath = 'site/posts'
     if not os.path.exists(newpath): os.makedirs(newpath)
-    
+    shutil.copytree('assets', 'site/assets')
+
 if __name__ == '__main__':
     options = parse_args(sys.argv[1:])
 

@@ -46,14 +46,14 @@ def publish():
 def parse_mail(mail, config):
     mail = Parser().parse(mail)
 
-    # this works for me, might be break for stupid^Wweirdly configured clients
+    # this works for me, might break for stupid^Wweirdly configured clients
     sender = mail['from'].split('<')[0].strip()
 
     if config['author'] != sender:
         return
 
     post = Post(mail['subject'], config['author'], mail['date'])
-    post.link = config['base url']+post.filename
+    post.link = config['base url']+'posts/'+post.filename
 
     for part in mail.walk():
         # i support only plain text, sending stupid^Wfancy html mails wont work
