@@ -7,7 +7,6 @@ from publish import *
 def parse_args(options):
     parser = optparse.OptionParser()
     parser.add_option('-s','--create-skeleton', action="store_true", default=False)
-    parser.add_option('-c','--create-cronjob', action="store_true", default=False)
     parser.add_option('-p','--publish', action="store_true", default=False)
     options, rem = parser.parse_args(options)
     return options
