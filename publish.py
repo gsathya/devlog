@@ -8,17 +8,13 @@ from mako.template import Template
 from mako.lookup import TemplateLookup
 
 class Post():
-    """
-    This class contains all the metadata about a post.
-    """
-
     def __init__(self, title=None, timestamp=None, msg=None, link=None):
         self.title = title
         self.author = config['name']
         self.timestamp = timestamp
         self.msg = msg
         self.filename = self.create_filename(self.title)
-        self.link = config['base url']+'posts'+self.filename
+        self.link = config['base url']+self.filename
 
     def create_filename(self, title):
         # replace all non-word chars with '-'
@@ -77,7 +73,7 @@ def make_post(post):
     outfh_path = os.path.join(outfh_path, post.filename)
     
     with open(outfh_path, 'w') as outfh:
-        outfh.write(mytemplate.render(post=post, config=config))
+        outfh.write(mytemplate.render(post=post))
 
 def make_index(posts):
     # path to templates
@@ -89,15 +85,10 @@ def make_index(posts):
     outfh_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'index.html')
     
     with open(outfh_path, 'w') as outfh:
-        outfh.write(mytemplate.render(posts=posts, config=config))
+        outfh.write(mytemplate.render(posts=posts))
 
 if __name__ == '__main__':
-    # step1) parse the config file
+    # parse the config file
     config = utils.parse_config("config.ini")
 
-    # step2) publish the devlog
     publish()
-
-    # step3) ???
-
-    # step4) PROFIT!
