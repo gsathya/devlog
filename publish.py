@@ -61,7 +61,7 @@ def parse_mail(mail, config):
             continue
         # don't publish replies; pretty hackish -- is there a better alternative?
         if 'Re: [devlog]' in mail['subject']:
-            continue
+            return
         post.msg = textile(part.get_payload(decode=True))
 
     return post
