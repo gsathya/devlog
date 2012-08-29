@@ -8,19 +8,23 @@ from mako.template import Template
 from mako.lookup import TemplateLookup
 
 class Post():
-    def __init__(self, title=None, author=None, timestamp=None, msg=None, link=None):
+    def __init__(self, title=None, author=None, timestamp=None, base_url=None, msg=None, link=None):
         self.title = title
         self.author = author
         self.timestamp = timestamp
         self.msg = msg
-        self.link = link
+        self.base_url = base_url
         self.filename = self.create_filename(self.title)
+        self.link = self.create_link()
 
     def create_filename(self, title):
         # replace all non-word chars with '-'
         link = re.sub(r'\W+', '-', title.lower())
         # replace multiple '-' with single '-', use only first 30 chars
         return re.sub(r'-+', '-', link).strip('-')[:30]+".html"
+
+    def create_link(self):
+        return self.base_url+'posts/'+self.filename
 
 def publish():
     # parse the config file
@@ -52,8 +56,10 @@ def parse_mail(mail, config):
     if config['author'] != sender:
         return
 
-    post = Post(mail['subject'], config['author'], mail['date'])
-    post.link = config['base url']+'posts/'+post.filename
+    post = Post(title=mail['subject'],
+                author=config['author'],
+                timestamp=mail['date'],
+                base_url=config['base url'])
 
     for part in mail.walk():
         # i support only plain text, sending stupid^Wfancy html mails wont work
