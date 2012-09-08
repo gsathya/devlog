@@ -1,4 +1,5 @@
 import ConfigParser
+import datetime
 import os
 
 def parse_config(config_filename):
@@ -21,3 +22,15 @@ def parse_header(raw_header):
             raise Exception("The header %s is not in proper format, Use 'Key:Value' format" % line)
         parsed_header[key.strip().lower()] = value.strip()
     return parsed_header
+
+def parse_timestamp(timestamp):
+  """
+  Parses a 'Day, DD MM YYYY HH:MM:SS +TZ' entry.
+  """
+
+  try:
+      timestamp = ' '.join(timestamp.split()[:-1])
+      timestamp = datetime.datetime.strptime(timestamp, "%a, %d %b %Y %H:%M:%S")
+      return timestamp
+  except ValueError:
+      raise ValueError("Timestamp wasn't parseable: %s" % timestamp)

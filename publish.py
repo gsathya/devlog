@@ -10,7 +10,8 @@ class Post():
     def __init__(self, title=None, timestamp=None, author=None, base_url=None, msg=None, link=None):
         self.title = title
         self.author = author
-        self.timestamp = timestamp
+        self.time = utils.parse_timestamp(timestamp)
+        self.timestamp = str(self.time)
         self.msg = msg
         self.base_url = base_url
         self.filename = self.create_filename(self.title)
@@ -73,6 +74,8 @@ def make_post(post, config):
         outfh.write(mytemplate.render(post=post, config=config))
 
 def make_index(posts, config):
+    posts.sort(key=lambda post: post.time, reverse=True)
+
     # path to templates
     template_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
     template_path = os.path.join(template_path, 'index.html')
