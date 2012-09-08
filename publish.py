@@ -2,13 +2,12 @@ import utils
 import os
 import sys
 import re
-from textile import textile
-from email.parser import Parser
+from markdown import markdown
 from mako.template import Template
 from mako.lookup import TemplateLookup
 
 class Post():
-    def __init__(self, title=None, author=None, timestamp=None, base_url=None, msg=None, link=None):
+    def __init__(self, title=None, timestamp=None, author=None, base_url=None, msg=None, link=None):
         self.title = title
         self.author = author
         self.timestamp = timestamp
@@ -33,42 +32,30 @@ def publish():
     # store all posts
     posts = []
 
-    # path to our rsync-ed data
-    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), config['data'])
+    # path to our drafts
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), config['drafts'])
 
-    # traverse the entire data dir
+    # traverse the entire drafts dir
     for root, dir, files in os.walk(path):
         for file in files:
             with open(os.path.join(root, file)) as fh:
-                post = parse_mail(fh, config)
+                post = parse_post(fh, config)
                 if post:
                     make_post(post, config)
                     posts.append(post)
 
     make_index(posts, config)
 
-def parse_mail(mail, config):
-    mail = Parser().parse(mail)
+def parse_post(draft, config):
+    header, content = draft.read().split('---')
+    header = utils.parse_header(header.strip())
 
-    # this works for me, might break for stupid^Wweirdly configured clients
-    sender = mail['from'].split('<')[0].strip()
-
-    if config['author'] != sender:
-        return
-
-    post = Post(title=mail['subject'],
+    post = Post(title= header['title'],
+                timestamp=header['date'],
                 author=config['author'],
-                timestamp=mail['date'],
                 base_url=config['base url'])
-
-    for part in mail.walk():
-        # i support only plain text, sending stupid^Wfancy html mails wont work
-        if part.get_content_type() != "text/plain":
-            continue
-        # don't publish replies; pretty hackish -- is there a better alternative?
-        if 'Re: [devlog]' in mail['subject']:
-            return
-        post.msg = textile(part.get_payload(decode=True))
+    
+    post.msg = markdown(content.strip())
 
     return post
 
