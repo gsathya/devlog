@@ -1,0 +1,85 @@
+<!doctype html>
+  
+<title>compass bugfixes, devlog update</title>
+<meta charset=utf-8>
+<link rel=stylesheet type=text/css href="../assets/css/style.css">
+<script type=text/javascript
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22313852-1']);  _gaq.push(['_setDomainName', 'gsathya.in']);
+  _gaq.push(['_trackPageview']);
+  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<div class=box>
+  
+  <h1>[devlog]</h1>
+
+  <p class=nav>
+    <a href=http://www.gsathya.in/>home</a> //
+    <a href=http://gsathya.github.com/>github</a> //
+    <a href=http://devlog.gsathya.in/>devlog</a> //
+  
+  <p class="backnav">
+  <a href=http://devlog.gsathya.in/>&laquo; back to index</a>
+  <h2>compass bugfixes, devlog update</h2>
+
+  <ul class=mailtree>
+  
+    <li><div class=link>&raquo; <a href=http://devlog.gsathya.in/posts/compass-bugfixes-devlog-update.html>compass bugfixes, devlog update</a> by Sathyanarayanan Gunasekaran</div>
+    
+  
+  </ul>
+
+  
+    <div class=mail>
+      <dl>
+        <dt>From:
+        <dd class=from>Sathyanarayanan Gunasekaran
+        <dt>Date:
+        
+        <dd>2012-09-09 22:03:00
+        
+      </dl>
+      <div class="msg"><h3>Devlog</h3>
+<p>Updated the devlog. There was a lot of problems with my previous devlog approach. </p>
+<ul>
+<li>The whole rsync-ing from the librelist archives dance was painful</li>
+<li>I couldn't update the post once I sent the mail.</li>
+<li>Too many hits, and I had to pay $$$ for my ec2.</li>
+<li>Couldn't see the output before sending it.</li>
+<li>Posts weren't sorted according to date of publishing.</li>
+</ul>
+<p>Well, now I've updated the devlog to take care of these things. My workflow is now -</p>
+<ul>
+<li>Write post in markdown and save it locally in /drafts</li>
+<li>Send the content to the list</li>
+<li>Run python devlog.py --publish, commit new posts in /site/posts, push code to github.</li>
+<li>???</li>
+<li>Profit.</li>
+</ul>
+<p>It's a lot more steps now, but it gives me more flexibility than my previous approach. Github now hosts the site, so I don't pay for the hosting. Posts are now sorted by date. And for bonus, it supports markdown. Screw you textile.</p>
+<h3>Compass</h3>
+<p>Fixed a whole bunch of bugs in compass(currently in "needs_review") -</p>
+<ul>
+<li><a href="https://trac.torproject.org/projects/tor/ticket/6691">#6691</a> - I don't need no abstraction in python. Sorry neena!</li>
+<li><a href="https://trac.torproject.org/projects/tor/ticket/6639">#6639</a> - Added kousik cool new Compass logo. Thanks kousik!</li>
+<li><a href="https://trac.torproject.org/projects/tor/ticket/6677">#6677</a> </li>
+<li><a href="https://trac.torproject.org/projects/tor/ticket/6696">#6696</a></li>
+<li><a href="https://trac.torproject.org/projects/tor/ticket/6618">#6618</a></li>
+</ul></div>
+    </div>
+  
+
+  <p class=footer>
+   Devlog based on code by
+   <a href=http://www.gsathya.in/>Sathyanarayanan Gunasekaran</a> //
+   <br />
+   Design inspired by <a href=http://lucumr.pocoo.org/>Armin Ronacher</a> //
+</p>
+</div>
