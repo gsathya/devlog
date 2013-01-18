@@ -1,0 +1,105 @@
+<!doctype html>
+  
+<title>Tor hackfest report - IITM</title>
+<meta charset=utf-8>
+<link rel=stylesheet type=text/css href="../assets/css/style.css">
+<script type=text/javascript
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22313852-1']);  _gaq.push(['_setDomainName', 'gsathya.in']);
+  _gaq.push(['_trackPageview']);
+  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<div class=box>
+  
+  <h1>[devlog]</h1>
+
+  <p class=nav>
+    <a href=http://www.gsathya.in/>home</a> //
+    <a href=http://gsathya.github.com/>github</a> //
+    <a href=http://devlog.gsathya.in/>devlog</a> //
+  
+  <p class="backnav">
+  <a href=http://devlog.gsathya.in/>&laquo; back to index</a>
+  <h2>Tor hackfest report - IITM</h2>
+
+  <ul class=mailtree>
+  
+    <li><div class=link>&raquo; <a href=http://devlog.gsathya.in/posts/tor-hackfest-report-iitm.html>Tor hackfest report - IITM</a> by Sathyanarayanan Gunasekaran</div>
+    
+  
+  </ul>
+
+  
+    <div class=mail>
+      <dl>
+        <dt>From:
+        <dd class=from>Sathyanarayanan Gunasekaran
+        <dt>Date:
+        
+        <dd>2013-01-14 23:27:59
+        
+      </dl>
+      <div class="msg"><p>As part of the Indian Institute of Technology's techfest<a href="www.shaastra.org/2013/main/events/hackfest">0</a>, neena and
+I were invited to conduct a hackfest on Tor along with a bunch of
+other orgs(mediawiki, mailman, KDE) last week. We had around 12
+students working on the Tor projects over 3 nights.</p>
+<p>The students were mostly beginners to Open Source and we spent a fair
+amount of time setting up the systems, teaching the basics of git and
+introducing them to Tor and it's ecosystem. I picked three python
+projects initially - Pyonionoo, Compass and Stem, but we didn't have
+time to hack on Pyonionoo.</p>
+<p>Some of the highlights of the hackfest -</p>
+<ul>
+<li>
+<p>Sowmya hacked on Stem, she fixed<a href="https://github.com/abcdef123/stem/commit/e755536fc8562bf0e1025d8479f3635808d2b1b6">1</a> #7868(but Damian was too quick and
+fixed it before we could push out our changes :); and started adding
+more controller commands to stem's control.py such as RESOLVE.</p>
+</li>
+<li>
+<p>Sreenatha worked on adding a tutorial to Stem - #7505. This was a
+  fun task with the institute's proxy messing up the circuits we were
+  creating.</p>
+</li>
+<li>
+<p>Govind hacked on Compass - #7834 and #7640. I need to review the
+  commits and merge them once I get enough sleep.</p>
+</li>
+<li>
+<p>Sabyasachi and a bunch of others worked on fixing some integ tests
+  for Stem(Damian beat us to it again) and then moved on to extending my
+  half assed Torrc parser for stem and adding tests for it.</p>
+</li>
+<li>
+<p>Sourbh hacked on #7713(Stem).</p>
+</li>
+<li>
+<p>A bunch of people were completely new to Python and I spent some
+  time running through the basics of Python and pointing them to
+  proper documentation; a couple of others knew Python, but didn't
+  know flask(which is used by Compass), and I ended up explaining
+  about the MVC architecture and how dynamic web apps work( .. using
+  facebook as an example :/)</p>
+</li>
+</ul>
+<p>I was pleasantly surprised that students new to Python could grok and
+fix code within 3 nights. They seemed pretty enthusiastic about
+contributing Open Source at the end of three nights and hopefully
+they'll apply to the Google Summer of Code program this summer for
+Tor :)</p></div>
+    </div>
+  
+
+  <p class=footer>
+   Devlog based on code by
+   <a href=http://www.gsathya.in/>Sathyanarayanan Gunasekaran</a> //
+   <br />
+   Design inspired by <a href=http://lucumr.pocoo.org/>Armin Ronacher</a> //
+</p>
+</div>
